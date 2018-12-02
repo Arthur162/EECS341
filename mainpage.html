@@ -7,20 +7,102 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <title>Main Page</title>
-    
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
     
     <link href="main.css" type="text/css" rel="stylesheet">
-    
+        
     <style>
-        .mainbody{
-            width: 80%;
-            margin: 10px auto;
-            background-color: antiquewhite;
-            clear:both;
+	
+	/* The Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            padding-top: 30%; /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
         }
-    </style>
-    
+
+        /* Modal Content */
+        .modal-content {
+            position: relative;
+            background-color: #fff;
+            margin: auto;
+            padding: 0;
+            border: 1px solid #888;
+            width: 80%;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+            -webkit-animation-name: animatetop;
+            -webkit-animation-duration: 0.4s;
+            animation-name: animatetop;
+            animation-duration: 0.5s
+        }
+
+        /* Add Animation */
+        @-webkit-keyframes animatetop {
+            from {top:-300px; opacity:0} 
+            to {top:0; opacity:1}
+        }
+
+        @keyframes animatetop {
+            from {top:-300px; opacity:0}
+            to {top:0; opacity:1}
+        }
+
+        /* The Close Button */
+        .close {
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            cursor: pointer;
+        }
+
+        .modal-header {
+            padding: 2px 16px;
+        }
+
+        .modal-body {padding: 2px 16px;}
+
+        .modal-footer {
+            padding: 2px 16px;
+        }
+
+        .blueBtn {
+            float:right;
+            border: 0;
+            padding: 5px 15px;
+            font-size: 12px;
+            text-align: center;
+            color: #fff;
+            border-radius: 10px;
+            background-color: #1A73E8;
+            box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+                        inset -2px -2px 3px rgba(0, 0, 0, .6);
+        }
+
+        .blueBtn:hover,
+        .blueBtn:focus {
+            cursor: pointer;
+        }
+
+        .blueBtn:active {
+            box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+                        inset 2px 2px 3px rgba(0, 0, 0, .6);
+        }
+
+	</style>
+
+
+
 </head>
 
 <body>
@@ -57,7 +139,59 @@
     </div>
     
     
+    
+    <!-- Trigger/Open The Modal -->
+<button id="editBtn" class="blueBtn" type="button">Edit Reservations</button>
 
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Wickenden 312</h2>
+    </div>
+    <div class="modal-body">
+      <p>Thursday, 12/6/18</p>
+      <p>5:00pm-6:30pm</p>
+    </div>
+    <div class="modal-footer">
+      <div>INSERT SCHEDULE HERE</div>
+      <div><button id="updateBtn" class="blueBtn" type="button">Update</button></div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the edit view
+var edit_btn = document.getElementById("editBtn");
+
+// Get the button that saves the changes
+var update_btn = document.getElementById("updateBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+edit_btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+update_btn.onclick = function() {
+    modal.style.display = "none";
+}
+</script>
 
 
     
